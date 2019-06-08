@@ -399,21 +399,12 @@ TRANSITION_LIST("file_en[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
-	}
-}
-
-TRANSITION_LIST("file_en[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
 		LEVEL 0 FOR 960.0;
 		LEVEL 1 FOR 40.0;
 	}
 }
 
-TRANSITION_LIST("file_en[3]")
+TRANSITION_LIST("file_en[4]")
 {
 	NODE
 	{
@@ -428,7 +419,7 @@ TRANSITION_LIST("file_en[3]")
 	}
 }
 
-TRANSITION_LIST("file_en[2]")
+TRANSITION_LIST("file_en[3]")
 {
 	NODE
 	{
@@ -443,7 +434,7 @@ TRANSITION_LIST("file_en[2]")
 	}
 }
 
-TRANSITION_LIST("file_en[1]")
+TRANSITION_LIST("file_en[2]")
 {
 	NODE
 	{
@@ -458,7 +449,7 @@ TRANSITION_LIST("file_en[1]")
 	}
 }
 
-TRANSITION_LIST("file_en[0]")
+TRANSITION_LIST("file_en[1]")
 {
 	NODE
 	{
@@ -470,6 +461,22 @@ TRANSITION_LIST("file_en[0]")
 			LEVEL 1 FOR 60.0;
 		}
 		LEVEL 0 FOR 40.0;
+	}
+}
+
+TRANSITION_LIST("file_en[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 16;
+			LEVEL 0 FOR 30.0;
+			LEVEL 1 FOR 30.0;
+		}
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 10.0;
 	}
 }
 

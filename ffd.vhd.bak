@@ -8,10 +8,8 @@ ARCHITECTURE behaviorffd of ffd is
 		begin	
 			process(clkff)
 				begin
-					if clrn='1' then
-						Qff<='0';
-					elsif clkff'EVENT and clkff='1' then
-						Qff<=(Dff);
+					if clkff'EVENT and clkff='1' then
+						Qff<=(Dff)AND(NOT CLRN);
 					END if;
 			END process;
 END behaviorffd;	

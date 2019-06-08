@@ -33,7 +33,7 @@ PORT(
 END COMPONENT;
 BEGIN	
 	LAdrs:ffd4b port map(Dff4=>adrss,clkff4=>(clk AND enable),CLRN4=>'0',Qff4=>Endereco);
-	DECODE:DEMUX1BIT port map(Den=>Enable,Adrs=>adrss,SD0=>ld(0),SD1=>ld(1),SD2=>ld(2),SD3=>ld(3),SD4=>ld(4),SD5=>ld(5),SD6=>ld(6),SD7=>ld(7),SD8=>ld(8),SD9=>ld(9),SD10=>ld(10),SD11=>ld(11),SD12=>ld(12),SD13=>ld(13),SD14=>ld(14),SD15=>ld(15));
+	DECODE:DEMUX1BIT port map(Den=>Enable,Adrs=>Endereco,SD0=>ld(0),SD1=>ld(1),SD2=>ld(2),SD3=>ld(3),SD4=>ld(4),SD5=>ld(5),SD6=>ld(6),SD7=>ld(7),SD8=>ld(8),SD9=>ld(9),SD10=>ld(10),SD11=>ld(11),SD12=>ld(12),SD13=>ld(13),SD14=>ld(14),SD15=>ld(15));
 	LFile:ffd8 port map(Dff8=>file_en,clkff8=>(clk AND enable),CLRN8=>'0',Qff8=>E0);
 	g0:ffd8 port map(Dff8=>E0,clkff8=>((rw)AND clk AND ld(0)),CLRN8=>'0',Qff8=>r0);
 	g1:ffd8 port map(Dff8=>E0,clkff8=>((rw)AND clk AND ld(1)),CLRN8=>'0',Qff8=>r1);
@@ -52,6 +52,6 @@ BEGIN
 	g14:ffd8 port map(Dff8=>E0,clkff8=>((rw)AND clk AND ld(14)),CLRN8=>'0',Qff8=>r14);
 	g15:ffd8 port map(Dff8=>E0,clkff8=>((rw)AND clk AND ld(15)),CLRN8=>'0',Qff8=>r15);
 	mux:MulTIPLEXADOR8BITS port map(Em18=>r0,Em28=>r1,Em38=>r2,Em48=>r3,Em58=>r4,Em68=>r5,Em78=>r6,Em88=>r7,Em98=>r8,Em108=>r9,Em118=>r10,Em128=>r11,Em138=>r12,Em148=>r13,Em158=>r14,Em168=>r15,S8=>Adrss,Saida8BITS=>RR);
-	Sa0:ffd8 port map(Dff8=>RR,clkff8=>(NOT(rw)AND clk),CLRN8=>'0',Qff8=>S0);
+	Sa0:ffd8 port map(Dff8=>RR,clkff8=>(NOT(rw)AND clk),CLRN8=>rw,Qff8=>S0);
 	SRead<=S0;
 END memory; 
